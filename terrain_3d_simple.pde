@@ -90,11 +90,13 @@ void draw() {
     endShape();
   }
   
-  // Display instructions
+  // Display instructions at the end
+  hint(DISABLE_DEPTH_TEST);
   camera();
   fill(255);
   textAlign(LEFT);
   text("Press 'R' to generate new random terrain", 10, 20);
+  hint(ENABLE_DEPTH_TEST);
 }
 
 void generateRandomTerrain() {

@@ -1,7 +1,6 @@
 // 3D Terrain Generation with Joystick Control
 // Press R_LEFT button on joystick to generate new random terrain with random camera view
 
-import processing.core.*;
 import net.java.games.input.*;
 
 // Terrain parameters
@@ -27,7 +26,7 @@ float camRotX, camRotY, camRotZ;
 ControllerEnvironment ce;
 Controller controller;
 boolean rLeftPressed = false;
-boolean rLeftWasPressed = false;
+boolean rKeyPressed = false;
 
 void setup() {
   size(800, 600, P3D);
@@ -65,12 +64,12 @@ void draw() {
   
   // Check keyboard alternative
   if (keyPressed && (key == 'r' || key == 'R')) {
-    if (!rLeftWasPressed) {
+    if (!rKeyPressed) {
       generateRandomTerrain();
-      rLeftWasPressed = true;
+      rKeyPressed = true;
     }
   } else {
-    rLeftWasPressed = false;
+    rKeyPressed = false;
   }
   
   // Apply camera transformation
